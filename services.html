@@ -5,8 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QuickSiteKenya - Services</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* ============================= */
+/* Hero & Scroll Animations */
+/* ============================= */
+
+.service-hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+position:relative;
+padding:20px;
+background:linear-gradient(-45deg,#2563eb,#3b82f6,#06b6d4,#22c55e);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+text-align:center;
+}
+
+.hero-content{
+max-width:700px;
+}
+
+.hero-title{
+font-size:48px;
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s forwards;
+}
+
+.hero-text{
+font-size:18px;
+margin-top:20px;
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s 0.5s forwards;
+}
+
+.hero-btn{
+margin-top:30px;
+display:inline-block;
+opacity:0;
+transform:scale(0.8);
+animation:buttonPop 0.8s 1s forwards;
+}
+
+.hero-btn:hover{
+transform:scale(1.05);
+}
+
+/* Scroll indicator */
+.scroll-indicator{
+position:absolute;
+bottom:20px;
+font-size:28px;
+animation:bounce 2s infinite;
+}
+
+/* Fade animations */
+@keyframes fadeUp{
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes buttonPop{
+to{opacity:1;transform:scale(1);}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* ============================= */
+/* Reveal Animations */
+/* ============================= */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ============================= */
+/* Service CTA Section */
+/* ============================= */
+
+.service-cta{
+background:#2563eb;
+color:white;
+text-align:center;
+padding:70px 20px;
+border-radius:8px;
+}
+
+.service-cta .btn{
+background:white;
+color:#2563eb;
+padding:12px 25px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.service-cta .btn:hover{
+background:#e0e0e0;
+}
+
+/* ============================= */
+/* Card Grid Hover Effects */
+/* ============================= */
+
+.card{
+transition:all 0.3s ease;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+</style>
+
 </head>
 <body>
+
+<!-- HEADER -->
 
 <header>
 <h1>QuickSiteKenya</h1>
@@ -19,41 +155,54 @@
 </nav>
 </header>
 
-<section class="services">
+<!-- HERO SECTION -->
+
+<section class="service-hero">
+<div class="hero-content">
+<h1 class="hero-title">Our Services</h1>
+<p class="hero-text">We provide professional web solutions to help local businesses grow.</p>
+<a href="#services-section" class="btn hero-btn">Explore Services</a>
+</div>
+<div class="scroll-indicator">↓</div>
+</section>
+
+<!-- SERVICES LIST -->
+
+<section class="services reveal" id="services-section">
 <h2>Our Services</h2>
 <p>We provide professional web solutions to help local businesses grow.</p>
 
 <div class="card-grid">
 
-<div class="card">
+<div class="card reveal">
 <img src="images/business-icon.png" alt="Business Websites Icon">
 <h3>Business Websites</h3>
 <p>3–5 page websites, mobile-friendly, with contact forms and galleries.</p>
 <a href="services/business-websites.html" class="btn">Learn More</a>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <img src="images/hotel-icon.png" alt="Hotel Booking Websites Icon">
 <h3>Hotel Booking Websites</h3>
 <p>Rooms, booking forms, Google Maps, and payment integration.</p>
 <a href="services/hotel-booking-websites.html" class="btn">Learn More</a>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <img src="images/maintenance-icon.png" alt="Website Maintenance Icon">
 <h3>Website Maintenance</h3>
 <p>Regular updates, backups, and security checks to keep your site reliable.</p>
 <a href="services/website-maintenance.html" class="btn">Learn More</a>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <img src="images/seo-icon.png" alt="Google Maps & SEO Icon">
 <h3>Google Maps & Local SEO</h3>
 <p>Improve your visibility in local searches and maps.</p>
 <a href="services/google-maps-seo.html" class="btn">Learn More</a>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <img src="images/custom-icon.png" alt="Custom Features Icon">
 <h3>Custom Features</h3>
 <p>Booking forms, galleries, social media feeds, WhatsApp chat, and more.</p>
@@ -63,9 +212,37 @@
 </div>
 </section>
 
+<!-- CALL TO ACTION -->
+
+<section class="service-cta reveal">
+<h2>Need a Website for Your Business?</h2>
+<p>Contact us today and let's build a website that attracts more customers.</p>
+<a href="contact.html" class="btn">Start Your Project</a>
+</section>
+
+<!-- FOOTER -->
+
 <footer>
 <p>&copy; 2026 QuickSiteKenya. All rights reserved.</p>
 </footer>
+
+<!-- SCROLL REVEAL SCRIPT -->
+
+<script>
+function reveal(){
+  var reveals=document.querySelectorAll(".reveal");
+  for(var i=0;i<reveals.length;i++){
+    var windowHeight=window.innerHeight;
+    var elementTop=reveals[i].getBoundingClientRect().top;
+    var elementVisible=120;
+    if(elementTop<windowHeight-elementVisible){
+      reveals[i].classList.add("active");
+    }
+  }
+}
+window.addEventListener("scroll",reveal);
+reveal(); // trigger on page load
+</script>
 
 </body>
 </html>
