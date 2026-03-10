@@ -3,116 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>QuickSiteKenya | Professional Business Websites</title>
-
 <link rel="stylesheet" href="style.css">
 
 <style>
 
-/* HERO SLIDESHOW */
+/* HERO (same animated gradient style as services page) */
 
 .hero{
-position:relative;
 height:100vh;
-overflow:hidden;
-}
-
-.slideshow-container{
-position:relative;
-height:100%;
-width:100%;
-}
-
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-opacity:0;
-transition:opacity 1s ease;
-}
-
-.slide.active{
-opacity:1;
-}
-
-/* Image */
-
-.slide img{
-width:100%;
-height:100%;
-object-fit:cover;
-filter:brightness(55%);
-}
-
-/* Text */
-
-.slide-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
 color:white;
-max-width:800px;
 padding:20px;
+background:linear-gradient(-45deg,#2563eb,#3b82f6,#06b6d4,#22c55e);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
 }
 
-.slide-text h2{
+.hero-content{
+max-width:700px;
+}
+
+.hero h2{
 font-size:48px;
-margin-bottom:20px;
-text-shadow:0 5px 20px rgba(0,0,0,0.7);
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s forwards;
 }
 
-.slide-text p{
-font-size:20px;
-margin-bottom:30px;
-text-shadow:0 5px 20px rgba(0,0,0,0.7);
+.hero p{
+margin-top:20px;
+font-size:18px;
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s 0.4s forwards;
 }
 
-/* Hero Buttons */
-
-.hero-btn{
+.hero .btn{
+margin-top:30px;
 display:inline-block;
-background:#2563eb;
-color:white;
-padding:14px 28px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
+opacity:0;
+transform:scale(0.8);
+animation:buttonPop 0.8s 0.8s forwards;
 }
 
-.hero-btn:hover{
-background:#1e4ed8;
-transform:scale(1.05);
-}
 
-/* Dots */
-
-.dots-container{
-position:absolute;
-bottom:30px;
-left:50%;
-transform:translateX(-50%);
-}
-
-.dot{
-height:12px;
-width:12px;
-margin:5px;
-background:white;
-border-radius:50%;
-display:inline-block;
-opacity:0.5;
-cursor:pointer;
-}
-
-.dot.active{
-opacity:1;
-}
-
-/* Sections */
+/* SERVICES & PORTFOLIO SPACING */
 
 .services-preview,
 .portfolio-preview,
@@ -128,7 +67,7 @@ gap:30px;
 margin-top:40px;
 }
 
-/* Cards */
+/* CARD HOVER EFFECT */
 
 .card,
 .portfolio-card{
@@ -140,16 +79,8 @@ transition:all 0.3s ease;
 
 .card:hover,
 .portfolio-card:hover{
-transform:translateY(-8px);
+transform:translateY(-8px) scale(1.03);
 box-shadow:0 15px 35px rgba(0,0,0,0.15);
-}
-
-/* Portfolio images */
-
-.portfolio-card img{
-width:100%;
-border-radius:6px;
-margin-bottom:15px;
 }
 
 /* CTA */
@@ -157,8 +88,8 @@ margin-bottom:15px;
 .cta{
 background:#2563eb;
 color:white;
-padding:70px 20px;
 text-align:center;
+padding:70px 20px;
 }
 
 .cta .btn{
@@ -168,14 +99,20 @@ padding:12px 25px;
 border-radius:6px;
 text-decoration:none;
 font-weight:bold;
+transition:0.3s;
 }
 
-/* Scroll Reveal */
+.cta .btn:hover{
+background:#e5e5e5;
+}
+
+
+/* SCROLL REVEAL */
 
 .reveal{
 opacity:0;
 transform:translateY(40px);
-transition:0.8s;
+transition:all 0.8s ease;
 }
 
 .reveal.active{
@@ -183,16 +120,32 @@ opacity:1;
 transform:translateY(0);
 }
 
-</style>
 
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes buttonPop{
+to{opacity:1;transform:scale(1);}
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-
 <h1>QuickSiteKenya</h1>
-
 <nav>
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
@@ -200,74 +153,23 @@ transform:translateY(0);
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
-
 </header>
 
 
-<!-- HERO SLIDESHOW -->
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="slideshow-container">
-
-<div class="slide active">
-
-<img src="images/hero1.jpg">
-
-<div class="slide-text">
+<div class="hero-content">
 
 <h2>Professional Websites for Local Businesses</h2>
 
-<p>Helping Kenyan businesses grow online with modern websites.</p>
+<p>
+Helping businesses grow online with modern,
+fast and affordable websites.
+</p>
 
-<a href="contact.html" class="hero-btn">Get Your Website</a>
-
-</div>
-
-</div>
-
-
-<div class="slide">
-
-<img src="images/hero2.jpg">
-
-<div class="slide-text">
-
-<h2>Hotel & Booking Websites</h2>
-
-<p>Show rooms, availability and accept online bookings.</p>
-
-<a href="services.html" class="hero-btn">Our Services</a>
-
-</div>
-
-</div>
-
-
-<div class="slide">
-
-<img src="images/hero3.jpg">
-
-<div class="slide-text">
-
-<h2>Affordable Custom Websites</h2>
-
-<p>Fast, responsive and designed to attract customers.</p>
-
-<a href="portfolio.html" class="hero-btn">View Portfolio</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="dots-container">
-
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
+<a href="contact.html" class="btn">Get Your Website</a>
 
 </div>
 
@@ -284,19 +186,19 @@ transform:translateY(0);
 
 <div class="card">
 <h3>Business Websites</h3>
-<p>Professional websites for shops and companies.</p>
+<p>Professional websites for shops, companies and local businesses.</p>
 <a href="services.html" class="btn">Learn More</a>
 </div>
 
 <div class="card">
 <h3>Hotel Booking Websites</h3>
-<p>Show rooms and allow guests to book online.</p>
+<p>Show rooms, availability and allow guests to book online.</p>
 <a href="services.html" class="btn">Learn More</a>
 </div>
 
 <div class="card">
 <h3>Website Maintenance</h3>
-<p>Updates, backups and security monitoring.</p>
+<p>Security updates, backups and ongoing support.</p>
 <a href="services.html" class="btn">Learn More</a>
 </div>
 
@@ -316,19 +218,19 @@ transform:translateY(0);
 <div class="card-grid">
 
 <div class="portfolio-card">
-<img src="images/project1.jpg">
+<img src="images/project1.jpg" alt="">
 <h3>Hotel Website</h3>
-<p>Modern booking website.</p>
+<p>Modern booking website for a coastal hotel.</p>
 </div>
 
 <div class="portfolio-card">
-<img src="images/project2.jpg">
+<img src="images/project2.jpg" alt="">
 <h3>Restaurant Website</h3>
-<p>Menu and reservations.</p>
+<p>Menu, gallery and reservations.</p>
 </div>
 
 <div class="portfolio-card">
-<img src="images/project3.jpg">
+<img src="images/project3.jpg" alt="">
 <h3>Company Website</h3>
 <p>Professional services website.</p>
 </div>
@@ -347,8 +249,9 @@ transform:translateY(0);
 <h2>Why Choose QuickSiteKenya?</h2>
 
 <p>
-We build modern, fast and affordable websites designed to help
-local businesses attract more customers online.
+We build modern websites designed to help
+local businesses attract more customers
+and grow online.
 </p>
 
 </section>
@@ -360,63 +263,35 @@ local businesses attract more customers online.
 
 <h2>Ready to Grow Your Business Online?</h2>
 
-<a class="btn" href="contact.html">Start Your Project</a>
+<a class="btn" href="contact.html">Get Your Website Today</a>
 
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
-
 <p>© 2026 QuickSiteKenya. All rights reserved.</p>
-
 </footer>
 
 
+<!-- SCROLL REVEAL SCRIPT -->
+
 <script>
-
-/* SLIDESHOW */
-
-let slideIndex=0;
-
-const slides=document.querySelectorAll(".slide");
-const dots=document.querySelectorAll(".dot");
-
-function showSlides(){
-
-slides.forEach((slide,i)=>{
-slide.classList.remove("active");
-dots[i].classList.remove("active");
-});
-
-slideIndex++;
-
-if(slideIndex>slides.length){
-slideIndex=1;
-}
-
-slides[slideIndex-1].classList.add("active");
-dots[slideIndex-1].classList.add("active");
-
-setTimeout(showSlides,5000);
-
-}
-
-showSlides();
-
-
-/* SCROLL REVEAL */
 
 function reveal(){
 
-let reveals=document.querySelectorAll(".reveal");
+var reveals=document.querySelectorAll(".reveal");
 
-for(let i=0;i<reveals.length;i++){
+for(var i=0;i<reveals.length;i++){
 
-let windowHeight=window.innerHeight;
-let elementTop=reveals[i].getBoundingClientRect().top;
-let visible=120;
+var windowHeight=window.innerHeight;
 
-if(elementTop<windowHeight-visible){
+var elementTop=reveals[i].getBoundingClientRect().top;
+
+var elementVisible=120;
+
+if(elementTop<windowHeight-elementVisible){
 
 reveals[i].classList.add("active");
 
