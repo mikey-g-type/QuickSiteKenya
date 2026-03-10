@@ -3,138 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QuickSiteKenya | Professional Business Websites</title>
-<link rel="stylesheet" href="style.css">
+<title>QuickSiteKenya</title>
 
 <style>
 
-/* HERO (same animated gradient style as services page) */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f4f6f8;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:#0f1f38;
+color:white;
+}
+
+header nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-size:15px;
+}
+
+/* HERO */
 
 .hero{
-height:100vh;
+height:90vh;
+background:url("images/hero1.jpg") center/cover no-repeat;
 display:flex;
 align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-padding:20px;
-background:linear-gradient(-45deg,#2563eb,#3b82f6,#06b6d4,#22c55e);
-background-size:400% 400%;
-animation:gradientMove 12s ease infinite;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
 }
 
 .hero-content{
-max-width:700px;
+position:relative;
+color:white;
+padding-left:80px;
+max-width:600px;
 }
 
-.hero h2{
-font-size:48px;
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1s forwards;
+.hero-content h1{
+font-size:52px;
+margin-bottom:20px;
 }
 
-.hero p{
-margin-top:20px;
+.hero-content p{
 font-size:18px;
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1s 0.4s forwards;
+margin-bottom:30px;
 }
 
-.hero .btn{
-margin-top:30px;
-display:inline-block;
-opacity:0;
-transform:scale(0.8);
-animation:buttonPop 0.8s 0.8s forwards;
+/* SEARCH STYLE BOX */
+
+.search-box{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(8px);
+padding:20px;
+border-radius:10px;
+display:flex;
+gap:10px;
 }
 
+.search-box input{
+padding:12px;
+border:none;
+border-radius:5px;
+flex:1;
+}
 
-/* SERVICES & PORTFOLIO SPACING */
+.search-box button{
+background:#ff6b35;
+border:none;
+padding:12px 20px;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
 
-.services-preview,
-.portfolio-preview,
-.intro{
-padding:80px 20px;
+/* SERVICES SECTION */
+
+.services{
+background:#0f1f38;
+color:white;
+padding:80px 60px;
 text-align:center;
 }
 
-.card-grid{
+.services h2{
+font-size:34px;
+margin-bottom:40px;
+}
+
+.service-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:30px;
+}
+
+.service-card{
+border:1px solid rgba(255,255,255,0.2);
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.service-card:hover{
+background:#1d3357;
+transform:translateY(-5px);
+}
+
+/* PROJECTS */
+
+.projects{
+padding:80px 60px;
+}
+
+.projects h2{
+font-size:32px;
+margin-bottom:40px;
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.project-card{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.project-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.project-info{
+padding:20px;
+}
+
+/* IMAGE GRID */
+
+.locations{
+background:#0f1f38;
+color:white;
+padding:80px 60px;
+text-align:center;
+}
+
+.location-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
 margin-top:40px;
 }
 
-/* CARD HOVER EFFECT */
-
-.card,
-.portfolio-card{
-background:white;
-padding:25px;
-border-radius:8px;
-transition:all 0.3s ease;
-}
-
-.card:hover,
-.portfolio-card:hover{
-transform:translateY(-8px) scale(1.03);
-box-shadow:0 15px 35px rgba(0,0,0,0.15);
+.location-grid img{
+width:100%;
+height:200px;
+object-fit:cover;
 }
 
 /* CTA */
 
 .cta{
-background:#2563eb;
+background:#ff6b35;
 color:white;
 text-align:center;
-padding:70px 20px;
+padding:60px 20px;
 }
 
-.cta .btn{
+.cta button{
 background:white;
-color:#2563eb;
+border:none;
 padding:12px 25px;
 border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
+cursor:pointer;
 }
 
-.cta .btn:hover{
-background:#e5e5e5;
-}
+/* FOOTER */
 
-
-/* SCROLL REVEAL */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-
-/* ANIMATIONS */
-
-@keyframes fadeUp{
-to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes buttonPop{
-to{opacity:1;transform:scale(1);}
-}
-
-@keyframes gradientMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+footer{
+background:#0f1f38;
+color:white;
+text-align:center;
+padding:20px;
 }
 
 </style>
@@ -142,17 +219,18 @@ to{opacity:1;transform:scale(1);}
 
 <body>
 
-<!-- HEADER -->
-
 <header>
-<h1>QuickSiteKenya</h1>
+
+<h2>QuickSiteKenya</h2>
+
 <nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Portfolio</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
 </nav>
+
 </header>
 
 
@@ -162,14 +240,19 @@ to{opacity:1;transform:scale(1);}
 
 <div class="hero-content">
 
-<h2>Professional Websites for Local Businesses</h2>
+<h1>Let’s Build Your Business Website</h1>
 
-<p>
-Helping businesses grow online with modern,
-fast and affordable websites.
-</p>
+<p>Modern websites designed to help Kenyan businesses grow online.</p>
 
-<a href="contact.html" class="btn">Get Your Website</a>
+<div class="search-box">
+
+<input type="text" placeholder="Business Type">
+
+<input type="text" placeholder="Location">
+
+<button>Search</button>
+
+</div>
 
 </div>
 
@@ -178,134 +261,115 @@ fast and affordable websites.
 
 <!-- SERVICES -->
 
-<section class="services-preview reveal">
+<section class="services">
 
-<h2>Our Services</h2>
+<h2>Explore Our Services</h2>
 
-<div class="card-grid">
+<div class="service-grid">
 
-<div class="card">
+<div class="service-card">
 <h3>Business Websites</h3>
-<p>Professional websites for shops, companies and local businesses.</p>
-<a href="services.html" class="btn">Learn More</a>
+<p>Professional websites for companies.</p>
 </div>
 
-<div class="card">
-<h3>Hotel Booking Websites</h3>
-<p>Show rooms, availability and allow guests to book online.</p>
-<a href="services.html" class="btn">Learn More</a>
+<div class="service-card">
+<h3>Hotel Websites</h3>
+<p>Booking websites for hotels.</p>
 </div>
 
-<div class="card">
-<h3>Website Maintenance</h3>
-<p>Security updates, backups and ongoing support.</p>
-<a href="services.html" class="btn">Learn More</a>
+<div class="service-card">
+<h3>Restaurant Sites</h3>
+<p>Menus and reservations online.</p>
+</div>
+
+<div class="service-card">
+<h3>SEO Optimization</h3>
+<p>Rank your business on Google.</p>
+</div>
+
+<div class="service-card">
+<h3>Maintenance</h3>
+<p>Updates and security monitoring.</p>
 </div>
 
 </div>
-
-<a class="btn" href="services.html">View All Services</a>
 
 </section>
 
 
-<!-- PORTFOLIO -->
+<!-- PROJECTS -->
 
-<section class="portfolio-preview reveal">
+<section class="projects">
 
 <h2>Recent Projects</h2>
 
-<div class="card-grid">
+<div class="project-grid">
 
-<div class="portfolio-card">
-<img src="images/project1.jpg" alt="">
+<div class="project-card">
+<img src="images/project1.jpg">
+<div class="project-info">
 <h3>Hotel Website</h3>
-<p>Modern booking website for a coastal hotel.</p>
+<p>Modern hotel booking platform.</p>
+</div>
 </div>
 
-<div class="portfolio-card">
-<img src="images/project2.jpg" alt="">
+<div class="project-card">
+<img src="images/project2.jpg">
+<div class="project-info">
 <h3>Restaurant Website</h3>
-<p>Menu, gallery and reservations.</p>
+<p>Menu and reservation system.</p>
+</div>
 </div>
 
-<div class="portfolio-card">
-<img src="images/project3.jpg" alt="">
-<h3>Company Website</h3>
-<p>Professional services website.</p>
+<div class="project-card">
+<img src="images/project3.jpg">
+<div class="project-info">
+<h3>Business Website</h3>
+<p>Corporate company website.</p>
+</div>
 </div>
 
 </div>
-
-<a class="btn" href="portfolio.html">View Portfolio</a>
 
 </section>
 
 
-<!-- WHY CHOOSE US -->
+<!-- IMAGE GRID -->
 
-<section class="intro reveal">
+<section class="locations">
 
-<h2>Why Choose QuickSiteKenya?</h2>
+<h2>Websites Built For Businesses</h2>
 
-<p>
-We build modern websites designed to help
-local businesses attract more customers
-and grow online.
-</p>
+<div class="location-grid">
+
+<img src="images/project1.jpg">
+<img src="images/project2.jpg">
+<img src="images/project3.jpg">
+<img src="images/project1.jpg">
+
+</div>
 
 </section>
 
 
 <!-- CTA -->
 
-<section class="cta reveal">
+<section class="cta">
 
-<h2>Ready to Grow Your Business Online?</h2>
+<h2>Ready To Grow Your Business Online?</h2>
 
-<a class="btn" href="contact.html">Get Your Website Today</a>
+<br>
+
+<button>Start Your Website</button>
 
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
-<p>© 2026 QuickSiteKenya. All rights reserved.</p>
+
+<p>© 2026 QuickSiteKenya</p>
+
 </footer>
-
-
-<!-- SCROLL REVEAL SCRIPT -->
-
-<script>
-
-function reveal(){
-
-var reveals=document.querySelectorAll(".reveal");
-
-for(var i=0;i<reveals.length;i++){
-
-var windowHeight=window.innerHeight;
-
-var elementTop=reveals[i].getBoundingClientRect().top;
-
-var elementVisible=120;
-
-if(elementTop<windowHeight-elementVisible){
-
-reveals[i].classList.add("active");
-
-}
-
-}
-
-}
-
-window.addEventListener("scroll",reveal);
-
-reveal();
-
-</script>
 
 </body>
 </html>
