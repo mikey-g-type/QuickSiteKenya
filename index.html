@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>QuickSiteKenya</title>
 
+<link rel="stylesheet" href="style.css">
+
 <style>
+
+/* RESET */
 
 *{
 margin:0;
@@ -15,132 +20,170 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#f4f6f8;
+background:#f3f5f9;
 }
 
-/* HEADER */
+/* TOP BAR */
+
+.topbar{
+background:#1e3a5f;
+color:white;
+display:flex;
+justify-content:space-between;
+padding:8px 60px;
+font-size:14px;
+}
+
+/* NAVBAR */
 
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
-background:#0f1f38;
-color:white;
+padding:18px 60px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-header nav a{
-color:white;
-margin-left:20px;
+nav a{
+margin:0 15px;
 text-decoration:none;
-font-size:15px;
+color:#333;
+font-weight:500;
+}
+
+.book-btn{
+background:#ff7a2f;
+color:white;
+padding:10px 18px;
+border-radius:5px;
+text-decoration:none;
 }
 
 /* HERO */
 
 .hero{
-height:90vh;
-background:url("images/hero1.jpg") center/cover no-repeat;
-display:flex;
-align-items:center;
+margin:30px 60px;
+border-radius:12px;
+overflow:hidden;
 position:relative;
+height:520px;
+background:url("images/hero1.jpg") center/cover no-repeat;
 }
 
-.hero::before{
+.hero::after{
 content:"";
 position:absolute;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.55);
+background:rgba(0,0,0,0.45);
 }
 
 .hero-content{
-position:relative;
+position:absolute;
 color:white;
-padding-left:80px;
-max-width:600px;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+max-width:700px;
+z-index:2;
 }
 
 .hero-content h1{
-font-size:52px;
-margin-bottom:20px;
+font-size:48px;
+margin-bottom:15px;
 }
 
 .hero-content p{
+margin-bottom:25px;
 font-size:18px;
-margin-bottom:30px;
 }
 
-/* SEARCH STYLE BOX */
+/* HERO BUTTONS */
 
-.search-box{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(8px);
-padding:20px;
-border-radius:10px;
+.hero-buttons a{
+margin:8px;
+padding:12px 22px;
+border-radius:6px;
+text-decoration:none;
+}
+
+.btn-orange{
+background:#ff7a2f;
+color:white;
+}
+
+.btn-outline{
+border:2px solid white;
+color:white;
+}
+
+/* SEARCH BAR */
+
+.search-bar{
+background:white;
 display:flex;
 gap:10px;
+padding:15px;
+border-radius:10px;
+position:absolute;
+bottom:-30px;
+left:50%;
+transform:translateX(-50%);
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
-.search-box input{
-padding:12px;
-border:none;
+.search-bar input{
+padding:10px;
+border:1px solid #ddd;
 border-radius:5px;
-flex:1;
 }
 
-.search-box button{
-background:#ff6b35;
+.search-bar button{
+background:#ff7a2f;
 border:none;
-padding:12px 20px;
 color:white;
+padding:10px 20px;
 border-radius:5px;
-cursor:pointer;
 }
 
-/* SERVICES SECTION */
+/* SECTION TITLE */
 
-.services{
-background:#0f1f38;
-color:white;
-padding:80px 60px;
+.section{
+padding:90px 60px 40px;
 text-align:center;
 }
 
-.services h2{
-font-size:34px;
+.section h2{
+font-size:32px;
 margin-bottom:40px;
 }
 
-.service-grid{
+/* SERVICE TYPES */
+
+.types-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:20px;
 }
 
-.service-card{
-border:1px solid rgba(255,255,255,0.2);
+.type-card{
+background:white;
 padding:30px;
-border-radius:12px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 transition:0.3s;
 }
 
-.service-card:hover{
-background:#1d3357;
-transform:translateY(-5px);
+.type-card:hover{
+transform:translateY(-6px);
 }
 
-/* PROJECTS */
+/* FEATURED PROJECTS */
 
 .projects{
-padding:80px 60px;
-}
-
-.projects h2{
-font-size:32px;
-margin-bottom:40px;
+padding:40px 60px 100px;
 }
 
 .project-grid{
@@ -153,7 +196,7 @@ gap:30px;
 background:white;
 border-radius:10px;
 overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 .project-card img{
@@ -166,58 +209,48 @@ object-fit:cover;
 padding:20px;
 }
 
-/* IMAGE GRID */
+.project-info h3{
+margin-bottom:10px;
+}
 
-.locations{
-background:#0f1f38;
+.price{
+color:#ff7a2f;
+font-weight:bold;
+}
+
+.view-btn{
+display:inline-block;
+margin-top:10px;
+background:#ff7a2f;
 color:white;
-padding:80px 60px;
-text-align:center;
-}
-
-.location-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
-margin-top:40px;
-}
-
-.location-grid img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-/* CTA */
-
-.cta{
-background:#ff6b35;
-color:white;
-text-align:center;
-padding:60px 20px;
-}
-
-.cta button{
-background:white;
-border:none;
-padding:12px 25px;
-border-radius:6px;
-cursor:pointer;
+padding:8px 15px;
+border-radius:4px;
+text-decoration:none;
 }
 
 /* FOOTER */
 
 footer{
-background:#0f1f38;
+background:#1e3a5f;
 color:white;
 text-align:center;
 padding:20px;
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+<div>Call: +254 700 000000 | Email: info@quicksitekenya.com</div>
+<div>Login / Register</div>
+</div>
+
+<!-- NAVBAR -->
 
 <header>
 
@@ -226,13 +259,13 @@ padding:20px;
 <nav>
 <a href="#">Home</a>
 <a href="#">Services</a>
-<a href="#">Portfolio</a>
 <a href="#">About</a>
+<a href="#">Portfolio</a>
 <a href="#">Contact</a>
+<a class="book-btn" href="#">Book Now</a>
 </nav>
 
 </header>
-
 
 <!-- HERO -->
 
@@ -240,13 +273,22 @@ padding:20px;
 
 <div class="hero-content">
 
-<h1>Let’s Build Your Business Website</h1>
+<h1>Build Your Dream Business Website</h1>
 
 <p>Modern websites designed to help Kenyan businesses grow online.</p>
 
-<div class="search-box">
+<div class="hero-buttons">
+<a class="btn-orange" href="#">View Services</a>
+<a class="btn-outline" href="#">Contact Now</a>
+</div>
+
+</div>
+
+<div class="search-bar">
 
 <input type="text" placeholder="Business Type">
+
+<input type="text" placeholder="Industry">
 
 <input type="text" placeholder="Location">
 
@@ -254,120 +296,95 @@ padding:20px;
 
 </div>
 
-</div>
-
 </section>
 
+<!-- SERVICE TYPES -->
 
-<!-- SERVICES -->
+<section class="section">
 
-<section class="services">
+<h2>Explore Website Types</h2>
 
-<h2>Explore Our Services</h2>
+<div class="types-grid">
 
-<div class="service-grid">
-
-<div class="service-card">
-<h3>Business Websites</h3>
-<p>Professional websites for companies.</p>
-</div>
-
-<div class="service-card">
-<h3>Hotel Websites</h3>
-<p>Booking websites for hotels.</p>
-</div>
-
-<div class="service-card">
-<h3>Restaurant Sites</h3>
-<p>Menus and reservations online.</p>
-</div>
-
-<div class="service-card">
-<h3>SEO Optimization</h3>
-<p>Rank your business on Google.</p>
-</div>
-
-<div class="service-card">
-<h3>Maintenance</h3>
-<p>Updates and security monitoring.</p>
-</div>
+<div class="type-card">Business Websites</div>
+<div class="type-card">Hotel Websites</div>
+<div class="type-card">Restaurant Websites</div>
+<div class="type-card">Portfolio Websites</div>
+<div class="type-card">Ecommerce Stores</div>
 
 </div>
 
 </section>
 
-
-<!-- PROJECTS -->
+<!-- FEATURED PROJECTS -->
 
 <section class="projects">
 
-<h2>Recent Projects</h2>
+<h2 style="text-align:center;margin-bottom:40px;">Featured Projects</h2>
 
 <div class="project-grid">
 
 <div class="project-card">
+
 <img src="images/project1.jpg">
+
 <div class="project-info">
-<h3>Hotel Website</h3>
-<p>Modern hotel booking platform.</p>
+
+<h3>Hotel Booking Website</h3>
+
+<p>Nairobi, Kenya</p>
+
+<p class="price">KSh 25,000</p>
+
+<a class="view-btn" href="#">View Project</a>
+
 </div>
+
 </div>
 
 <div class="project-card">
+
 <img src="images/project2.jpg">
+
 <div class="project-info">
+
 <h3>Restaurant Website</h3>
-<p>Menu and reservation system.</p>
+
+<p>Mombasa, Kenya</p>
+
+<p class="price">KSh 18,000</p>
+
+<a class="view-btn" href="#">View Project</a>
+
 </div>
+
 </div>
 
 <div class="project-card">
+
 <img src="images/project3.jpg">
+
 <div class="project-info">
-<h3>Business Website</h3>
-<p>Corporate company website.</p>
-</div>
-</div>
+
+<h3>Corporate Website</h3>
+
+<p>Nakuru, Kenya</p>
+
+<p class="price">KSh 22,000</p>
+
+<a class="view-btn" href="#">View Project</a>
 
 </div>
 
-</section>
-
-
-<!-- IMAGE GRID -->
-
-<section class="locations">
-
-<h2>Websites Built For Businesses</h2>
-
-<div class="location-grid">
-
-<img src="images/project1.jpg">
-<img src="images/project2.jpg">
-<img src="images/project3.jpg">
-<img src="images/project1.jpg">
+</div>
 
 </div>
 
 </section>
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-<h2>Ready To Grow Your Business Online?</h2>
-
-<br>
-
-<button>Start Your Website</button>
-
-</section>
-
 
 <footer>
 
-<p>© 2026 QuickSiteKenya</p>
+<p>© 2026 QuickSiteKenya. All rights reserved.</p>
 
 </footer>
 
