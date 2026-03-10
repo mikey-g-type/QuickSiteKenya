@@ -20,18 +20,20 @@ font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#f3f5f9;
+background:#0f0f0f;
+color:#f5f5f5;
 }
 
 /* TOP BAR */
 
 .topbar{
-background:#1e3a5f;
-color:white;
+background:#000;
+color:#d4af37;
 display:flex;
 justify-content:space-between;
 padding:8px 60px;
 font-size:14px;
+border-bottom:1px solid #d4af37;
 }
 
 /* NAVBAR */
@@ -41,23 +43,37 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 60px;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
+background:#111;
+border-bottom:1px solid #d4af37;
+}
+
+header h2{
+color:#d4af37;
 }
 
 nav a{
 margin:0 15px;
 text-decoration:none;
-color:#333;
+color:#f5f5f5;
 font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#d4af37;
 }
 
 .book-btn{
-background:#ff7a2f;
-color:white;
+background:#d4af37;
+color:#000;
 padding:10px 18px;
 border-radius:5px;
 text-decoration:none;
+font-weight:bold;
+}
+
+.book-btn:hover{
+background:#f1d67a;
 }
 
 /* HERO */
@@ -76,7 +92,7 @@ content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,0.65);
 }
 
 .hero-content{
@@ -93,6 +109,7 @@ z-index:2;
 .hero-content h1{
 font-size:48px;
 margin-bottom:15px;
+color:#d4af37;
 }
 
 .hero-content p{
@@ -107,22 +124,28 @@ margin:8px;
 padding:12px 22px;
 border-radius:6px;
 text-decoration:none;
+font-weight:bold;
 }
 
-.btn-orange{
-background:#ff7a2f;
-color:white;
+.btn-gold{
+background:#d4af37;
+color:#000;
 }
 
 .btn-outline{
-border:2px solid white;
-color:white;
+border:2px solid #d4af37;
+color:#d4af37;
+}
+
+.btn-outline:hover{
+background:#d4af37;
+color:#000;
 }
 
 /* SEARCH BAR */
 
 .search-bar{
-background:white;
+background:#151515;
 display:flex;
 gap:10px;
 padding:15px;
@@ -131,33 +154,39 @@ position:absolute;
 bottom:-30px;
 left:50%;
 transform:translateX(-50%);
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+border:1px solid #d4af37;
 }
 
 .search-bar input{
 padding:10px;
-border:1px solid #ddd;
+border:1px solid #333;
+background:#0f0f0f;
+color:white;
 border-radius:5px;
 }
 
 .search-bar button{
-background:#ff7a2f;
+background:#d4af37;
 border:none;
-color:white;
+color:#000;
 padding:10px 20px;
 border-radius:5px;
+font-weight:bold;
 }
 
-/* SECTION TITLE */
+/* SECTION */
 
 .section{
 padding:90px 60px 40px;
 text-align:center;
+background:#0f0f0f;
 }
 
 .section h2{
 font-size:32px;
 margin-bottom:40px;
+color:#d4af37;
 }
 
 /* SERVICE TYPES */
@@ -169,21 +198,27 @@ gap:20px;
 }
 
 .type-card{
-background:white;
+background:#151515;
 padding:30px;
 border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+border:1px solid #222;
 transition:0.3s;
 }
 
 .type-card:hover{
 transform:translateY(-6px);
+border-color:#d4af37;
 }
 
-/* FEATURED PROJECTS */
+/* PROJECTS */
 
 .projects{
 padding:40px 60px 100px;
+background:#111;
+}
+
+.projects h2{
+color:#d4af37;
 }
 
 .project-grid{
@@ -193,10 +228,10 @@ gap:30px;
 }
 
 .project-card{
-background:white;
+background:#151515;
 border-radius:10px;
 overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
+border:1px solid #222;
 }
 
 .project-card img{
@@ -214,27 +249,29 @@ margin-bottom:10px;
 }
 
 .price{
-color:#ff7a2f;
+color:#d4af37;
 font-weight:bold;
 }
 
 .view-btn{
 display:inline-block;
 margin-top:10px;
-background:#ff7a2f;
-color:white;
+background:#d4af37;
+color:#000;
 padding:8px 15px;
 border-radius:4px;
 text-decoration:none;
+font-weight:bold;
 }
 
 /* FOOTER */
 
 footer{
-background:#1e3a5f;
-color:white;
+background:#000;
+color:#d4af37;
 text-align:center;
 padding:20px;
+border-top:1px solid #d4af37;
 }
 
 </style>
@@ -243,14 +280,10 @@ padding:20px;
 
 <body>
 
-<!-- TOP BAR -->
-
 <div class="topbar">
 <div>Call: +254 700 000000 | Email: info@quicksitekenya.com</div>
 <div>Login / Register</div>
 </div>
-
-<!-- NAVBAR -->
 
 <header>
 
@@ -267,8 +300,6 @@ padding:20px;
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-content">
@@ -278,7 +309,7 @@ padding:20px;
 <p>Modern websites designed to help Kenyan businesses grow online.</p>
 
 <div class="hero-buttons">
-<a class="btn-orange" href="#">View Services</a>
+<a class="btn-gold" href="#">View Services</a>
 <a class="btn-outline" href="#">Contact Now</a>
 </div>
 
@@ -287,9 +318,7 @@ padding:20px;
 <div class="search-bar">
 
 <input type="text" placeholder="Business Type">
-
 <input type="text" placeholder="Industry">
-
 <input type="text" placeholder="Location">
 
 <button>Search</button>
@@ -297,8 +326,6 @@ padding:20px;
 </div>
 
 </section>
-
-<!-- SERVICE TYPES -->
 
 <section class="section">
 
@@ -315,8 +342,6 @@ padding:20px;
 </div>
 
 </section>
-
-<!-- FEATURED PROJECTS -->
 
 <section class="projects">
 
